@@ -3,7 +3,7 @@ node {
     stage('test') {
         def rootPassword = '123456a@'
         def initDatabaseName = 'test'
-        def initDatabase = "${env.WORKSPACE}" + 'test_db.sql'
+        def initDatabase = "${env.WORKSPACE}" + '/' + 'test_db.sql'
 
         withEnv(["MYSQL_ROOT_PASSWORD=${rootPassword}", "MYSQL_DATABASE=${initDatabaseName}"]) {
             docker.image('mariadb:10.4').withRun("-e MYSQL_ROOT_PASSWORD -e MYSQL_DATABASE -v ${initDatabase}:/docker-entrypoint-initdb.d/init.sql") { c ->
