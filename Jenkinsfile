@@ -5,7 +5,7 @@ node {
     stage('normal') {
             sh 'echo normal_build'
     }
-    if (COMMIT_MSG != 0) {
+    if (COMMIT_MSG == 0) {
         stage('test') {
             sh 'echo do_test'
         }
