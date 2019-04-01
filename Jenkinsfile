@@ -5,6 +5,10 @@ node {
         stage('test') {
             sh echo $GIT_BRANCH
         }
+    } else {
+        stage('no-test') {
+            sh echo "No test"
+        }
     }
 }
 
