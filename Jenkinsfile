@@ -4,10 +4,12 @@ node {
     if (GIT_BRANCH.contains('evaluation')) {
         stage('test') {
             sh "echo ${GIT_BRANCH}"
+            sh 'echo testing'
         }
     } else {
         stage('no-test') {
-            sh 'echo "No test"''
+            sh 'echo "No test"'
+            sh "echo ${GIT_BRANCH}"
         }
     }
 }
